@@ -1,8 +1,50 @@
- # Contents of .gitignore
- *.com
- *.class
- *.dll
- *.exe
- *.o
- *.so
- build/
+# Contents of .gitignore
+*.a
+*.bin
+*.cmake
+*.dll
+*.exe
+*.exp
+*.filters
+*.lib
+*.o
+*.obj
+*.sln
+*.vcxproj
+*.tcl
+*html/
+
+# Build results
+*[Bb]uild/
+*[Bb]uild2/
+[Dd]ebug/
+[Ll]og/
+[Ll]ogs/
+[Oo]bj/
+x64/
+x86/
+
+# Files built by Visual Studio
+*.[Cc]ache
+*.ilk
+*.log
+*.obj
+*.pdb
+*.rsp
+*.tmp
+.vs/
+
+
+#User files
+*.user
+
+#Others
+bin/
+
+
+#CMake
+cmake_install.cmake
+CMakeCache.txt
+CMakefiles
+CMakeScripts
+Makefile
