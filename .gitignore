@@ -73,3 +73,6 @@ Makefile
 # Flags for Clang Code Model
 *.cxxflags
 *.cflags
+
+# qtcreator generated files
+*.pro.user*
