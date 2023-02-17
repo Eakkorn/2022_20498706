@@ -31,6 +31,7 @@ class Ui_MainWindow
 {
 public:
     QAction *actionOpen_File;
+    QAction *actionItem_Options;
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
@@ -53,6 +54,11 @@ public:
         MainWindow->resize(800, 600);
         actionOpen_File = new QAction(MainWindow);
         actionOpen_File->setObjectName("actionOpen_File");
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/Icons/Icons/fileopen.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionOpen_File->setIcon(icon);
+        actionItem_Options = new QAction(MainWindow);
+        actionItem_Options->setObjectName("actionItem_Options");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayout = new QVBoxLayout(centralwidget);
@@ -66,6 +72,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(treeView->sizePolicy().hasHeightForWidth());
         treeView->setSizePolicy(sizePolicy);
+        treeView->setContextMenuPolicy(Qt::ActionsContextMenu);
 
         horizontalLayout->addWidget(treeView);
 
@@ -120,6 +127,7 @@ public:
 
         menubar->addAction(menuFile->menuAction());
         menuFile->addAction(actionOpen_File);
+        menuFile->addAction(actionItem_Options);
 
         retranslateUi(MainWindow);
 
@@ -130,6 +138,7 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         actionOpen_File->setText(QCoreApplication::translate("MainWindow", "Open File", nullptr));
+        actionItem_Options->setText(QCoreApplication::translate("MainWindow", "Item_Options", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         pushButton_2->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
