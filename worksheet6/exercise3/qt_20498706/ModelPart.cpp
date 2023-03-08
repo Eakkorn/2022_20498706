@@ -154,6 +154,15 @@ void ModelPart::loadSTL( QString fileName ) {
     vtkNew<vtkActor> actor;
     actor->SetMapper(mapper);
     actor->AddPosition(-150., -50., -100.);
+    actor->SetMapper(mapper);
+    vtkNew<vtkRenderer>renderer;
+    renderer->AddActor(actor);
+    vtkNew<vtkRenderWindow>renderWindow;
+    renderWindow->AddRenderer(renderer);
+    vtkNew<vtkRenderWindowInteractor>interactor;
+    interactor->SetRenderWindow(renderWindow);
+    interactor->Initialize();
+    interactor->Start();
    
     /* 3. Initialise the part's vtkActor and link to the mapper */
 }
