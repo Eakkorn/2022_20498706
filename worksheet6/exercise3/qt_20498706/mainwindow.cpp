@@ -39,8 +39,9 @@ MainWindow::MainWindow(QWidget *parent)
     renderer->AddActor(cylinderActor);
 
     renderer -> ResetCamera();
-    renderer -> GetActiveCamera()->Azimuth(30);
-    renderer -> GetActiveCamera()->Elevation(30);
+    renderer -> GetActiveCamera()->SetPosition(0, 0, 10);
+    renderer -> GetActiveCamera()->SetFocalPoint(0, 0, 0);
+    renderer->GetActiveCamera()->SetViewUp(0, 1, 0);
     renderer -> ResetCameraClippingRange();
 
     
@@ -126,6 +127,7 @@ void MainWindow::on_actionOpen_File_triggered() {
     newIndex = partList->appendChild(selectedIndex, { fileName , "True" });
     
     selectedPart->loadSTL(fileName);
+    
     
     return;
 }
