@@ -13,6 +13,7 @@
 *.vcxproj
 *.tcl
 *html/
+*.json
 
 # Build results
 *[Bb]uild/
