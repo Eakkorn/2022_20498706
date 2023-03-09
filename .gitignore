@@ -14,6 +14,7 @@
 *.tcl
 *html/
 *.json
+*html
 
 # Build results
 *[Bb]uild/
