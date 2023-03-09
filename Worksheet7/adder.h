@@ -8,19 +8,20 @@
 // arbitrary but must be unique within the project.
 #ifndef MATHSLIB_ADDER_H
 #define MATHSLIB_ADDER_H
+
 /** @ file
 * This file contains the declarations of all exported functions in the maths library.
 */
+
 /** Adding function [ Brief description ]
  * This function adds two numbers [ More detail ]
  * @param a is the first number [ Parameter definition ]
  * @param b is the second number [ Parameter definition ]
  * @return sum of a and b [ Return value description ]
- *
  */
- int add (int a, int b );
+ int add(int a, int b );
 
- #endif
+#endif
 // We need to prefix our function names with an additional
 // keyword which is different depending on the operating
 // system we are using, and whether we are using or creating the
