@@ -15,12 +15,12 @@
  * This function adds two numbers [ More detail ]
  * @param a is the first number [ Parameter definition ]
  * @param b is the second number [ Parameter definition ]
- * @return sum o f a and b [ Return value description ]
+ * @return sum of a and b [ Return value description ]
  *
  */
  int add (int a, int b );
 
- #e n d i f
+ #endif
 // We need to prefix our function names with an additional
 // keyword which is different depending on the operating
 // system we are using, and whether we are using or creating the
