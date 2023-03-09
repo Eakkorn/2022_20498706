@@ -22,26 +22,3 @@
  int add(int a, int b );
 
 #endif
-// We need to prefix our function names with an additional
-// keyword which is different depending on the operating
-// system we are using, and whether we are using or creating the
-// library.
-// The variables"maths EXPORTS" must be defined at build time if
-// we are building the library , but not if we are using it.
-#if defined(WIN32)|defined(_WIN32)
-#ifdef maths_STATIC
-#define MATHSLIB_API
-#else
-#ifdef maths_EXPORTS
-#define MATHSLIB_API __declspec( dllexport )
-#else
-#define MATHSLIB_API __declspec( dllimport )
-#endif
-#endif
-#else
-#define MATHSLIB_API
-#endif
-
-MATHSLIB_API int add( int a, int b );
-#endif
-//end =adder.h=
