@@ -15,6 +15,9 @@
 *html/
 *.json
 *html
+*.tex
+*.sty
+*.bat
 
 # Build results
 *[Bb]uild/
