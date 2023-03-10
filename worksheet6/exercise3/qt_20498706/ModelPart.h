@@ -23,6 +23,7 @@
 #include <vtkRenderWindowInteractor.h>
 #include <vtkRenderer.h>
 #include <vtkSTLReader.h>
+#include <vtkDataSetMapper.h>
 
 /* VTK headers - will be needed when VTK used in next worksheet,
  * commented out for now
@@ -149,12 +150,12 @@ private:
 	/* These are vtk properties that will be used to load/render a model of this part,
 	 * commented out for now but will be used later
 	 */
-	vtkSmartPointer<vtkSTLReader>               file;               /**< Datafile from which part loaded */
-    vtkSmartPointer<vtkMapper>                  mapper;             /**< Mapper for rendering */
+	vtkSmartPointer<vtkSTLReader>               reader;               /**< Datafile from which part loaded */
+    vtkSmartPointer<vtkDataSetMapper>           mapper;             /**< Mapper for rendering */
     vtkSmartPointer<vtkActor>                   actor;              /**< Actor for rendering */
     vtkColor3<unsigned char>                   colour;             /**< User defineable colour */
     vtkSmartPointer<vtkActor>                   actor2;              /**< Actor for rendering */
-    vtkSmartPointer<vtkMapper>                  mapper2;
+    vtkSmartPointer<vtkDataSetMapper>            mapper2;
 };  
 
 

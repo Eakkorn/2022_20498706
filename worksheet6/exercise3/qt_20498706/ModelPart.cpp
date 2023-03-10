@@ -144,25 +144,19 @@ void ModelPart::loadSTL( QString fileName ) {
     /* 1. Use the vtkSTLReader class to load the STL file 
      *     https://vtk.org/doc/nightly/html/classvtkSTLReader.html
      */
-    vtkNew<vtkSTLReader> reader;
+    reader = vtkSmartPointer<vtkSTLReader>::New();
     reader->SetFileName(fileName.toLatin1().data());
     reader->Update();
 
-    vtkNew<vtkPolyDataMapper> mapper;
+    
+    mapper = vtkSmartPointer<vtkDataSetMapper>::New();
     mapper->SetInputConnection(reader->GetOutputPort());
     
-    vtkNew<vtkActor> actor;
+    actor = vtkSmartPointer<vtkActor>::New();;
     actor->SetMapper(mapper);
     actor->AddPosition(-150., -50., -100.);
-    actor->SetMapper(mapper);
-    vtkNew<vtkRenderer>renderer;
-    renderer->AddActor(actor);
-    vtkNew<vtkRenderWindow>renderWindow;
-    renderWindow->AddRenderer(renderer);
-    vtkNew<vtkRenderWindowInteractor>interactor;
-    interactor->SetRenderWindow(renderWindow);
-    interactor->Initialize();
-    interactor->Start();
+    
+    return;
    
     /* 3. Initialise the part's vtkActor and link to the mapper */
 }
@@ -187,12 +181,14 @@ vtkActor* ModelPart::getNewActor() {
      
      
      /* 1. Create new mapper */
-    vtkNew<vtkSTLReader> reader;
-    vtkNew<vtkPolyDataMapper> mapper2;
+    
+    reader->Update();
+    mapper2 = vtkSmartPointer<vtkDataSetMapper>::New();
     mapper2->SetInputConnection(reader->GetOutputPort());
     
 
-    vtkNew<vtkActor> actor2;
+    
+    vtkNew<vtkActor>actor2;
     actor2->SetMapper(mapper2);
      /* 2. Create new actor and link to mapper */
      
@@ -203,7 +199,8 @@ vtkActor* ModelPart::getNewActor() {
       *    See the vtkActor documentation, particularly the GetProperty() and SetProperty()
       *    functions.
       */
-    
+    vtkProperty* originalProp = this->actor->GetProperty();
+    vtkProperty* newProp = actor2->GetProperty();
 
     /* The new vtkActor pointer must be returned here */
     return actor2;
